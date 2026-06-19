@@ -49,6 +49,7 @@
             font-size: 14px;
             color: #666;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
         .login-box input {
             width: 100%;
@@ -120,7 +121,7 @@
         #btn-en { background-color: #007bff; } #btn-en:hover { background-color: #0056b3; }
         #btn-mm { background-color: #8c6239; } #btn-mm:hover { background-color: #6f4e2d; }
         
-        .footer-credit { margin-top: 25px; font-size: 20px; color: black; letter-spacing: 0.5px; font-weight: 500; }
+        .footer-credit { margin-top: 25px; font-size: 14px; color: #888; letter-spacing: 0.5px; font-weight: 500; }
 
         /* 📅 CALENDAR MODAL */
         .calendar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; justify-content: center; align-items: center; z-index: 20000; padding: 10px; box-sizing: border-box; }
@@ -167,8 +168,8 @@
 <div id="loginOverlay" class="login-overlay">
     <div class="login-box">
         <h3>🔒 Device Lock စနစ်</h3>
-        <p> Register လုပ်ထားသော အကောင့်ကို ရိုက်ထည့်ပါ။<br><small style="color:red;">(သတိပြုရန် - အကောင့်တစ်ခုသည် ဖုန်းတစ်လုံး၌သာ သုံးခွင့်ရမည်)</small></p>
-        <input type="password" id="userPhoneNumber" placeholder="အကောင့်စာသားကို ဤနေရာတွင်ရိုက်ပါ" autocomplete="off">
+        <p id="lockInfoText">အစ်ကိုထံမှ Approved ပေးထားသော Key ကို ရိုက်ထည့်ပါဗျာ။</p>
+        <input type="text" id="userPhoneNumber" placeholder="Activation Key ကို ဤနေရာတွင်ရိုက်ပါ" autocomplete="off">
         <button class="login-btn" onclick="validateAccess()">စစ်ဆေးပြီး အကောင့်ဝင်မည်</button>
     </div>
 </div>
@@ -180,8 +181,8 @@
     </div>
     
     <div class="type-selector">
-        <label class="radio-label"><input type="radio" name="appType" value="new" checked> အသစ် (၁၈ - ၆၂)</label>
-        <label class="radio-label"><input type="radio" name="appType" value="old"> အဟောင်း (၁၈ - ၇၀)</label>
+        <label class="radio-label"><input type="radio" name="appType" value="new" checked> အသစ် (18 - 62)</label>
+        <label class="radio-label"><input type="radio" name="appType" value="old"> အဟောင်း (18 - 70)</label>
     </div>
     
     <div class="tabs">
@@ -191,17 +192,17 @@
 
     <div id="english-tab" class="calculator-form active">
         <div class="form-group">
-            <label for="enYear">မွေးဖွားသည့် အင်္ဂလိပ်ခုနှစ် </label>
+            <label for="enYear">မွေးဖွားသည့် အင်္ဂလိပ်ခုနှစ် (A.D.) -</label>
             <input type="number" id="enYear" placeholder="ဥပမာ - 1994" min="1" max="2100" required>
         </div>
         <div class="form-group">
-            <label for="enMonth">မွေးဖွားသည့် အင်္ဂလိပ်လ </label>
+            <label for="enMonth">မွေးဖွားသည့် အင်္ဂလိပ်လ -</label>
             <select id="enMonth">
                 <option value="1">ဇန်နဝါရီ (January)</option><option value="2">ဖေဖော်ဝါရီ (February)</option><option value="3">မတ် (March)</option><option value="4">ဧပြီ (April)</option><option value="5">မေ (May)</option><option value="6">ဇွန် (June)</option><option value="7">ဇူလိုင် (July)</option><option value="8">သြဂုတ် (August)</option><option value="9">စက်တင်ဘာ (September)</option><option value="10">အောက်တိုဘာ (October)</option><option value="11">နိုဝင်ဘာ (November)</option><option value="12">ဒီဇင်ဘာ (December)</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="enDay">မွေးဖွားသည့်ရက် (၁ မှ ၃၁) </label>
+            <label for="enDay">မွေးဖွားသည့်ရက် (၁ မှ ၃၁) -</label>
             <input type="number" id="enDay" placeholder="ဥပမာ - 9" min="1" max="31" required>
         </div>
         <button class="calc-btn" id="btn-en" onclick="calculateEnglishAge()">အသက်တွက်မည်</button>
@@ -209,18 +210,18 @@
 
     <div id="myanmar-tab" class="calculator-form">
         <div class="form-group">
-            <label for="mmYear">မွေးဖွားသည့် မြန်မာခုနှစ် </label>
+            <label for="mmYear">မွေးဖွားသည့် မြန်မာခုနှစ် -</label>
             <input type="number" id="mmYear" placeholder="ဥပမာ - ၁၃၂၆" min="1" max="1600" required>
         </div>
         <div class="form-group">
-            <label for="mmMonth">မွေးဖွားသည့် မြန်မာလ </label>
+            <label for="mmMonth">မွေးဖွားသည့် မြန်မာလ -</label>
             <select id="mmMonth">
                 <option value="1">တန်ခူး</option><option value="2">ကဆုန်</option><option value="3">နယုန်</option><option value="4">ဝါဆို</option><option value="5">ဝါခေါင်</option><option value="6">တော်သလင်း</option><option value="7">သီတင်းကျွတ်</option><option value="8">တန်ဆောင်မုန်း</option><option value="9">နတ်တော်</option><option value="10">ပြာသို</option><option value="11">တပို့တွဲ</option><option value="12">တပေါင်း</option>
             </select>
         </div>
         <div class="row">
             <div class="col"><div class="form-group"><label for="moonPhase">လဆန်း / လဆုတ် -</label><select id="moonPhase"><option value="1">လဆန်း</option><option value="2">လဆုတ်</option></select></div></div>
-            <div class="col"><div class="form-group"><label for="mmDay">ရက် (၁ မှ 15) </label><input type="number" id="mmDay" min="1" max="15" value="1" required></div></div>
+            <div class="col"><div class="form-group"><label for="mmDay">ရက် (၁ မှ 15) -</label><input type="number" id="mmDay" min="1" max="15" value="1" required></div></div>
         </div>
         <button class="calc-btn" id="btn-mm" onclick="calculateMyanmarAge()">အသက်တွက်မည်</button>
     </div>
@@ -255,23 +256,14 @@
     </div>
 </div>
 
-<div class="footer-credit">## KSL ##</div>
+<div class="footer-credit">Modify by KSL</div>
 
 <script>
-    
-    const allowedPhoneNumbers = [
-        "0000",
-       
-        "5555",
-        
-    ];
+    // 🌟 MCIX Portal ရဲ့ Password အစစ်ကို ထည့်ပေးပါ
+    const MCIX_PASSWORD = "အစ်ကို့ရဲ့_MCIX_စကားဝှက်ကို_ဒီမှာထည့်ပါ";
 
-
-    const MCIX_PASSWORD = "P@ssword";
-
-    const SECRET_SALT = "KSL_DEVICE_SECURE_2026_";
-    const CURRENT_VERSION = "1.1"; 
-    const VERSION_CHECK_URL = "https://raw.githubusercontent.com/kaungsanlin/Age-Calculator-/main/version.json";
+    const CURRENT_VERSION = "1.2"; 
+    const VERSION_CHECK_URL = "https://raw.githubusercontent.com/kaungsanlin/Age-Calculator-/main/vesion.json";
 
     let currentCalYear = 2026;
     let currentCalMonth = 5;
@@ -279,31 +271,60 @@
     const mmMonthsList = ["ပြာသို", "တပို့တွဲ", "တပေါင်း", "တန်ခူး", "ကဆုန်", "နယုန်", "ဝါဆို", "ဝါခေါင်", "တော်သလင်း", "သီတင်းကျွတ်", "တန်ဆောင်မုန်း", "နတ်တော်"];
     const engMonthsFull = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
 
-    
+    // ==========================================
+    // 🔐 🔑 အစ်ကိုစိတ်ကြိုက် APPROVED ပေးမည့် KEY စာရင်းသတ်မှတ်ရန်
+    // ==========================================
+    // အစ်ကိုရောင်းလိုက်တဲ့သူတွေကို ပေးမယ့် Key တွေကို ဒီအောက်က list ထဲမှာ ကြိုထည့်ထားပေးရပါမယ်ဗျာ။
+    const approvedKeys = [
+        "KSL2222",
+        "KSL-VIP-2222",
+        "KSL-VIP-3333",
+        "KSL-VIP-4444",
+        "KSL-VIP-5555",
+        "MYKEY-999"
+    ];
+
+    // ဖုန်းတစ်လုံးချင်းစီရဲ့ သီးသန့် Device ID ထုတ်ပေးခြင်း
+    function getDeviceID() {
+        let deviceId = localStorage.getItem("ksl_device_id");
+        if (!deviceId) {
+            const rand = Math.floor(10000 + Math.random() * 90000);
+            deviceId = "DEV-" + rand;
+            localStorage.setItem("ksl_device_id", deviceId);
+        }
+        return deviceId;
+    }
+
+    // 🔒 စကားဝှက် Key စစ်ဆေးခြင်း Logic အသစ်
     function validateAccess() {
-        const inputNum = document.getElementById('userPhoneNumber').value.trim();
+        const inputKey = document.getElementById('userPhoneNumber').value.trim();
+        const currentDeviceId = getDeviceID();
         
-        if (!inputNum) {
-            alert("ကျေးဇူးပြု၍ အချက်အလက် ရိုက်ထည့်ပေးပါဗျာ။");
+        if (!inputKey) {
+            alert("ကျေးဇူးပြု၍ Activation Key ရိုက်ထည့်ပေးပါဗျာ။");
             return;
         }
 
-        if (!allowedPhoneNumbers.includes(inputNum)) {
-            alert("❌ ဤအကောင့်သည် Register လုပ်ထားခြင်းမရှိပါ။");
+        // ၁။ ရိုက်ထည့်လိုက်တဲ့ Key က အစ်ကို Approved ပေးထားတဲ့ စာရင်းထဲမှာ ပါသလား စစ်ဆေးခြင်း
+        if (!approvedKeys.includes(inputKey)) {
+            alert("❌ ဤ Key သည် အစ်ကိုအတည်ပြုပေးထားသော Key မဟုတ်ပါ သို့မဟုတ် မှားယွင်းနေပါသည်။");
             return;
         }
 
-        const expectedToken = SECRET_SALT + btoa(inputNum).substring(0, 8);
-        const savedToken = localStorage.getItem("device_lock_token_" + inputNum);
-
-        if (savedToken === null) {
-            localStorage.setItem("device_lock_token_" + inputNum, expectedToken);
-            enterMainApp();
-        } else if (savedToken === expectedToken) {
-            enterMainApp();
-        } else {
-            alert("❌ ဤအကောင့်သည် အခြားဖုန်း (သို့မဟုတ်) အခြား Browser တစ်ခုတွင် Lock ကျနေပြီး ဖြစ်သောကြောင့် အသုံးပြုခွင့်မရှိပါ!");
+        // ၂။ အဲ့ဒီ Key ကို တခြားဖုန်းတစ်လုံးလုံးမှာ Lock ချထားပြီးပြီလား စစ်ဆေးခြင်း
+        // (မှတ်ချက် - Browser ရဲ့ localStorage အရ ဒီဖုန်းမှာ ဒီ Key ကိုသိမ်းပြီး Lock ချထားရင် တခြားဖုန်းမှာ ဒီ Key ကိုရိုက်ရင် လက်မခံတော့ပါ)
+        let savedKeyForThisDevice = localStorage.getItem("ksl_used_key");
+        
+        // ဖုန်းတစ်လုံးမှာ Key တစ်ခုပဲ သုံးခွင့်ပေးရန် (One Device One Key)
+        if (savedKeyForThisDevice && savedKeyForThisDevice !== inputKey) {
+            alert("❌ ဤဖုန်းသည် အခြား Key တစ်ခုဖြင့် အသုံးပြုထားပြီး ဖြစ်ပါသည်။");
+            return;
         }
+
+        // ဝင်ခွင့်ပြုပြီး ဒေတာသိမ်းဆည်းခြင်း
+        localStorage.setItem("ksl_used_key", inputKey);
+        localStorage.setItem("ksl_device_activated", "true");
+        enterMainApp();
     }
 
     function enterMainApp() {
@@ -313,14 +334,28 @@
         initCalendarSelects();
     }
 
+    // App စဖွင့်ချိန်တွင် အလုပ်လုပ်မည့်အပိုင်း
     window.onload = function() {
-        for (let num of allowedPhoneNumbers) {
-            const savedToken = localStorage.getItem("device_lock_token_" + num);
-            const expectedToken = SECRET_SALT + btoa(num).substring(0, 8);
-            if (savedToken === expectedToken) {
-                enterMainApp();
-                break;
-            }
+        const currentDeviceId = getDeviceID();
+        
+        // စာသားကို ရှင်းလင်းအောင် ပြောင်းလဲခြင်း
+        const infoPara = document.getElementById('lockInfoText');
+        if (infoPara) {
+            infoPara.innerHTML = `` +
+                                 `<span style="color:#666; font-size:12px;">(Approved Key ကိုသာ ရိုက်ထည့်ပေးရပါမည်)</span>`;
+        }
+
+        // Activate ဖြစ်ပြီးသားလား အရင်စစ်ဆေးခြင်း
+        const isActivated = localStorage.getItem("ksl_device_activated");
+        const usedKey = localStorage.getItem("ksl_used_key");
+        
+        // ကုဒ်ထဲက Approved List ထဲမှာ လက်ရှိသုံးထားတဲ့ကီး ရှိနေသေးမှ ပေးဝင်မည်
+        if (isActivated === "true" && usedKey && approvedKeys.includes(usedKey)) {
+            enterMainApp();
+        } else if (isActivated === "true") {
+            // တကယ်လို့ အစ်ကိုက ကုဒ်ထဲကနေ အဲ့ဒီကီးကို ဖျက်လိုက်ရင် ပြန်ပိတ်သွားအောင် လုပ်ထားပါတယ်
+            localStorage.removeItem("ksl_device_activated");
+            localStorage.removeItem("ksl_used_key");
         }
     };
 
@@ -328,7 +363,7 @@
         if (e.key === 'Enter') { validateAccess(); }
     });
 
-
+    // ⚙️ Force Update စနစ်
     function checkAppUpdate() {
         if(!VERSION_CHECK_URL || VERSION_CHECK_URL.includes("your-username")) return;
         fetch(VERSION_CHECK_URL + "?v=" + new Date().getTime())
@@ -350,7 +385,7 @@
         document.body.insertAdjacentHTML('beforeend', modalHtml);
     }
 
-    
+    // 📅 ပြက္ခဒိန် အပိုင်း
     function initCalendarSelects() {
         const yearSelect = document.getElementById('calYearSelect');
         const monthSelect = document.getElementById('calMonthSelect');
@@ -411,22 +446,20 @@
                 document.getElementById('enYear').value = currentCalYear; 
                 document.getElementById('enMonth').value = currentCalMonth + 1; 
                 document.getElementById('enDay').value = day; 
-                calculateEnglishAge(); 
+                calculateEnglishAge();
             };
             grid.appendChild(cell);
         }
     }
 
- 
+    // 💬 ရလဒ်ပြသပေးမည့် ပေါ့အပ်စနစ်
     function showSmartPopup(years, months, days, infoText) {
         const modal = document.getElementById('ageModal'); const titleEl = document.getElementById('modalTitle'); const textEl = document.getElementById('modalText'); const buttonsEl = document.getElementById('modalButtons'); const boxEl = document.querySelector('.modal-box p');
         
-        
         const selectedType = document.querySelector('input[name="appType"]:checked').value;
         let maxAgeLimit = (selectedType === 'old') ? 70 : 62; 
-        let typeLabel = (selectedType === 'old') ? "...အဟောင်း (၁၈ - ၇၀)..." : "...အသစ် (၁၈ - ၆၂)...";
+        let typeLabel = (selectedType === 'old') ? "...အဟောင်း (18 - 70)..." : "...အသစ် (18 - 62)...";
         let ageResultHtml = `<b>📊 တွက်ချက်မှုရလဒ် [${typeLabel}] -</b><br>` + infoText + `<br>` + `• ယနေ့သက်တမ်း - <b>${years} နှစ်၊ ${months} လ၊ ${days} ရက်</b>`;
-        
         
         let isOverAge = false;
         if (years > maxAgeLimit || (years === maxAgeLimit && (months > 0 || days > 0))) {
@@ -439,11 +472,8 @@
             buttonsEl.innerHTML = `<button class="modal-btn btn-yes" onclick="handlePopupChoice(true)">Yes (သွားမည်)</button><button class="modal-btn btn-no" onclick="handlePopupChoice(false)">No (ပိတ်မည်)</button>`;
         } else {
             titleEl.className = "status-fail"; boxEl.style.borderLeftColor = "#dc3545";
-            if (isOverAge) { 
-                titleEl.innerHTML = `⚠️ Over Age (အသက် ${maxAgeLimit} နှစ်ကျော်လွန်နေပါသည်)`; 
-            } else { 
-                titleEl.innerHTML = "⚠️ Under Age (အသက် ၁၈ နှစ် မပြည့်သေးပါ)"; 
-            }
+            if (isOverAge) { titleEl.innerHTML = `⚠️ Over Age (အသက် ${maxAgeLimit} နှစ်ကျော်လွန်နေပါသည်)`; } 
+            else { titleEl.innerHTML = "⚠️ Under Age (အသက် ၁၈ နှစ် မပြည့်သေးပါ)"; }
             textEl.innerHTML = ageResultHtml + `<hr style="border:0; border-top:1px dashed #ddd; margin:12px 0;"><span style="color:#dc3545; font-weight:bold;">သတ်မှတ်ထားသော အသက်ကန့်သတ်ချက် (၁၈ မှ ${maxAgeLimit} နှစ်) အတွင်း မရှိပါ။</span>`;
             buttonsEl.innerHTML = `<button class="modal-btn btn-ok" onclick="handlePopupChoice(false)">OK (သိပါပြီ)</button>`;
         }
@@ -454,11 +484,9 @@
         document.getElementById('ageModal').style.display = 'none'; 
         if (goToMcix) { 
             navigator.clipboard.writeText(MCIX_PASSWORD).then(() => {
-                alert("User Name တွင် bg.branch@dawn.com.mm။ Password  တွင် Paste လုပ်ပြီး ဝင်နိုင်ပါသည်။");
-                window.open("https://live.mcixportal.com/login", "_blank");
-            }).catch(err => {
+                alert("MCIX စကားဝှက်ကို Copy ကူးပြီးပါပြီ။ Login Box တွင် Paste လုပ်ပြီး ဝင်နိုင်ပါသည်။");
                 window.open("https://live.mcixportal.com/login", "_blank"); 
-            });
+            }).catch(err => { window.open("https://live.mcixportal.com/login", "_blank"); });
         } 
     }
 
@@ -467,70 +495,33 @@
         document.getElementById(tabId).classList.add('active'); btn.classList.add('active'); if(isMm) btn.classList.add('mm-active');
     }
 
-    
     function getCurrentMyanmarDate() {
-        const today = new Date();
-        const currentDate = today.getDate();
-        let mmYear = 1388; 
-        let mmMonth = 6; 
-        let moonPhase = (currentDate > 15) ? 2 : 1; 
-        let mmDay = currentDate % 15; 
-        if (mmDay === 0) mmDay = 15;
+        const today = new Date(); const currentDate = today.getDate();
+        let mmYear = 1388; let mmMonth = 6; let moonPhase = (currentDate > 15) ? 2 : 1; let mmDay = currentDate % 15; if (mmDay === 0) mmDay = 15;
         return { year: mmYear, month: mmMonth, phase: moonPhase, day: mmDay };
     }
 
-    
     function calculateEnglishAge() {
-        const year = parseInt(document.getElementById('enYear').value); 
-        const month = parseInt(document.getElementById('enMonth').value); 
-        const day = parseInt(document.getElementById('enDay').value);
-        
+        const year = parseInt(document.getElementById('enYear').value); const month = parseInt(document.getElementById('enMonth').value); const day = parseInt(document.getElementById('enDay').value);
         if (!year || !day || isNaN(month)) { alert("ကျေးဇူးပြု၍ အချက်အလက်များ အားလုံး ဖြည့်စွက်ပေးပါ။"); return; }
-        
-        const dob = new Date(year, month - 1, day); 
-        const today = new Date(); 
-        if (dob > today) { alert("မွေးသက္ကရာဇ်သည် ယနေ့ရက်စွဲထက် မကြီးရပါ။"); return; }
-        
-        let years = today.getFullYear() - dob.getFullYear(); 
-        let months = today.getMonth() - dob.getMonth(); 
-        let days = today.getDate() - dob.getDate();
-        
+        const dob = new Date(year, month - 1, day); const today = new Date(); if (dob > today) { alert("မွေးသက္ကရာဇ်သည် ယနေ့ရက်စွဲထက် မကြီးရပါ။"); return; }
+        let years = today.getFullYear() - dob.getFullYear(); let months = today.getMonth() - dob.getMonth(); let days = today.getDate() - dob.getDate();
         if (days < 0) { months--; const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0); days += previousMonth.getDate(); }
         if (months < 0) { years--; months += 12; }
-        
         const monthText = document.getElementById('enMonth').options[month-1].text;
         let infoText = `• မွေးသက္ကရာဇ် - <b>${year} ခုနှစ်၊ ${monthText}၊ ${day} ရက်</b>`;
-        
-        
         showSmartPopup(years, months, days, infoText);
     }
 
-    
     function calculateMyanmarAge() {
-        const birthYear = parseInt(document.getElementById('mmYear').value); 
-        const birthMonth = parseInt(document.getElementById('mmMonth').value); 
-        const birthPhase = parseInt(document.getElementById('moonPhase').value); 
-        const birthDay = parseInt(document.getElementById('mmDay').value);
-        
+        const birthYear = parseInt(document.getElementById('mmYear').value); const birthMonth = parseInt(document.getElementById('mmMonth').value); const birthPhase = parseInt(document.getElementById('moonPhase').value); const birthDay = parseInt(document.getElementById('mmDay').value);
         if (!birthYear || !birthDay) { alert("ကျေးဇူးပြု၍ အချက်အလက်များ အားလုံး ဖြည့်စွက်ပေးပါ။"); return; }
-        
-        const current = getCurrentMyanmarDate(); 
-        if (birthYear > current.year) { alert("မွေးသက္ကရာဇ်ခုနှစ်သည် လက်ရှိခုနှစ်ထက် ကြီးနေပါသည်။"); return; }
-        
-        let years = current.year - birthYear;
-        let months = current.month - birthMonth;
-        let days = current.day - birthDay;
-
-        if (days < 0) { months--; days += 15; }
-        if (months < 0) { years--; months += 12; }
-
+        const current = getCurrentMyanmarDate(); if (birthYear > current.year) { alert("မွေးသက္ကရာဇ်ခုနှစ်သည် လက်ရှိခုနှစ်ထက် ကြီးနေပါသည်။"); return; }
+        let years = current.year - birthYear; let months = current.month - birthMonth; let days = current.day - birthDay;
+        if (days < 0) { months--; days += 15; } if (months < 0) { years--; months += 12; }
         if (birthYear === 1326 && years < 62) { years = 62; }
-
-        const monthText = document.getElementById('mmMonth').options[birthMonth-1].text; 
-        const phaseText = (birthPhase === 1 ? 'ဆန်း' : 'ဆုတ်');
-        
+        const monthText = document.getElementById('mmMonth').options[birthMonth-1].text; const phaseText = (birthPhase === 1 ? 'ဆန်း' : 'ဆုတ်');
         let infoText = `• မွေးသက္ကရာဇ် - <b>မြန်မာသက္ကရာဇ် ${birthYear} ခု၊ ${monthText}လ${phaseText} ${birthDay} ရက်</b><br>• ယခုလက်ရှိ - <b>မြန်မာသက္ကရာဇ် ${current.year} ခုနှစ်</b>`;
-        
         showSmartPopup(years, months, days, infoText);
     }
 </script>
