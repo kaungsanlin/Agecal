@@ -263,7 +263,7 @@
     const MCIX_PASSWORD = "အစ်ကို့ရဲ့_MCIX_စကားဝှက်ကို_ဒီမှာထည့်ပါ";
 
     const CURRENT_VERSION = "1.2"; 
-    const VERSION_CHECK_URL = "https://raw.githubusercontent.com/kaungsanlin/Age-Calculator-/main/vesion.json";
+    const VERSION_CHECK_URL = "https://raw.githubusercontent.com/kaungsanlin/Age-Calculator-/main/verion.json";
 
     let currentCalYear = 2026;
     let currentCalMonth = 5;
@@ -276,7 +276,7 @@
     // ==========================================
     // အစ်ကိုရောင်းလိုက်တဲ့သူတွေကို ပေးမယ့် Key တွေကို ဒီအောက်က list ထဲမှာ ကြိုထည့်ထားပေးရပါမယ်ဗျာ။
     const approvedKeys = [
-        "KSL2222",
+        "ABC",
         "KSL-VIP-2222",
         "KSL-VIP-3333",
         "KSL-VIP-4444",
@@ -341,8 +341,8 @@
         // စာသားကို ရှင်းလင်းအောင် ပြောင်းလဲခြင်း
         const infoPara = document.getElementById('lockInfoText');
         if (infoPara) {
-            infoPara.innerHTML = `` +
-                                 `<span style="color:#666; font-size:12px;">(Approved Key ကိုသာ ရိုက်ထည့်ပေးရပါမည်)</span>`;
+            infoPara.innerHTML = `သင့်ဖုန်း၏ <b>Device ID: <span style="color:#28a745;">${currentDeviceId}</span></b> ဖြစ်ပါသည်။<br>` +
+                                 `<span style="color:#666; font-size:12px;">(အစ်ကိုပေးထားသော Approved Key ကိုသာ ရိုက်ထည့်ပေးရပါမည်)</span>`;
         }
 
         // Activate ဖြစ်ပြီးသားလား အရင်စစ်ဆေးခြင်း
