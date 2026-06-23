@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator</title>
+    <title>Age Checker</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -121,7 +121,7 @@
         #btn-en { background-color: #007bff; } #btn-en:hover { background-color: #0056b3; }
         #btn-mm { background-color: #8c6239; } #btn-mm:hover { background-color: #6f4e2d; }
         
-        .footer-credit { margin-top: 25px; font-size: 14px; color: #888; letter-spacing: 0.5px; font-weight: 500; }
+        .footer-credit { margin-top: 25px; font-size: 20px; color:BLack; letter-spacing: 0.5px; font-weight: 500; }
 
         /* CALENDAR MODAL */
         .calendar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; justify-content: center; align-items: center; z-index: 20000; padding: 10px; box-sizing: border-box; }
@@ -256,7 +256,7 @@
     </div>
 </div>
 
-<div class="footer-credit">Modify by KSL</div>
+<div class="footer-credit">## KSL ##</div>
 
 <script>
     // ⚠️ အရေးကြီးဆုံးအဆင့် - Google Sheet ထဲက Apps Script ကရလာတဲ့ Web App URL ကို အောက်က မျက်တောင်ကွင်းထဲမှာ ထည့်ပေးပါဗျာ
@@ -493,7 +493,7 @@
         document.getElementById('ageModal').style.display = 'none'; 
         if (goToMcix) { 
             navigator.clipboard.writeText(MCIX_PASSWORD).then(() => {
-                alert("MCIX စကားဝှက်ကို Copy ကူးပြီးပါပြီ။ Login Box တွင် Paste ချပေးပါဗျာ။");
+                alert("");
                 window.open("https://live.mcixportal.com/login", "_blank"); 
             }).catch(err => { window.open("https://live.mcixportal.com/login", "_blank"); });
         } 
